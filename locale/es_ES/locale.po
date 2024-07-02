@@ -1,43 +1,51 @@
+# Encabezado del archivo de traducción PO
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-19T11:05:18+00:00\n"
-"PO-Revision-Date: 2020-05-01 12:38+0000\n"
-"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
-"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/plugins/videojs-viewer-plugin/es_ES/>\n"
-"Language: es_ES\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"Project-Id-Version: \n"  # Versión del proyecto
+"Report-Msgid-Bugs-To: \n"  # Dirección de correo para reportar errores de mensajes ID
+"POT-Creation-Date: 2019-11-19T11:05:18+00:00\n"  # Fecha de creación del archivo POT
+"PO-Revision-Date: 2020-05-01 12:38+0000\n"  # Fecha de revisión del archivo PO
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"  # Último traductor
+"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/plugins/videojs-viewer-plugin/es_ES/>\n"  # Equipo de traducción
+"Language: es_ES\n"  # Idioma de la traducción
+"MIME-Version: 1.0\n"  # Versión MIME
+"Content-Type: text/plain; charset=UTF-8\n"  # Tipo de contenido y codificación de caracteres
+"Content-Transfer-Encoding: 8bit\n"  # Codificación de transferencia de contenido
+"Plural-Forms: nplurals=2; plural=n != 1;\n"  # Formas plurales en español
+"X-Generator: Weblate 3.9.1\n"  # Generador del archivo PO
 
+# Nombre del plugin
 msgid "plugins.generic.videoJsViewer.name"
 msgstr "Reproductor de video"
 
+# Descripción del plugin
 msgid "plugins.generic.videoJsViewer.description"
 msgstr "Este módulo se utiliza como reproductor de video"
 
+# Pregunta sobre mostrar el video directamente en la revista
 msgid "plugins.generic.videoJsViewer.showVideoDirectly"
 msgstr "¿Desea mostrar el video directamente en la revista?"
 
-
+# Nombre del autor
 msgid "author.name"
 msgstr "Autor"
 
+# Resumen del artículo
 msgid "article.abstract"
 msgstr "Resumen"
 
+# Fecha de publicación del artículo
 msgid "article.publicationDate"
 msgstr "Fecha de publicación"
 
+# Común: Descargar
 msgid "common.download"
 msgstr "Descargar"
 
+# Común: Descargar Video
 msgid "common.downloadVideo"
 msgstr "Descargar Video"
 
+# Mensaje para cuando JavaScript está deshabilitado
 msgid "plugins.generic.videoJsViewer.noJsMessage"
 msgstr "Necesitas habilitar JavaScript para ver el video."
-
