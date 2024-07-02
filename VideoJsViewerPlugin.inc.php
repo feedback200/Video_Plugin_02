@@ -82,7 +82,7 @@ class VideoJsViewerPlugin extends GenericPlugin {
                 'galleyTitle' => $galley->getLabel(),
                 'videoUrl' => $request->url(null, 'article', 'download', [$submission->getBestId(), $galley->getBestGalleyId()]),
                 'datePublished' => $submission->getCurrentPublication()->getData('datePublished'),
-                'page_title' => $submission->getLocalizedTitle(), // Asumiendo que el título del artículo es adecuado para page_title
+                'page_title' => $submission->getLocalizedTitle(),
             ));
             // Muestra la plantilla
             $templateMgr->display($this->getTemplateResource('display.tpl'));
