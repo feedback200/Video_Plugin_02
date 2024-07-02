@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Declara la versión y codificación del documento XML -->
 <!DOCTYPE version SYSTEM "../../../lib/pkp/dtd/pluginVersion.dtd">
+<!-- Define el tipo de documento (DOCTYPE) y la ubicación del archivo DTD -->
 <version>
-	<application>videoPlugin</application>
-	<type>plugins.generic</type>
-	<release>0.1.0.0</release>
-	<date>2019-05-15</date>
-	<lazy-load>1</lazy-load>
-	<class>VideoJsViewerPlugin</class>
+    <!-- Elemento raíz del documento XML que contiene toda la información sobre la versión del plugin -->
+    <application>videoPlugin</application>
+    <!-- Especifica el nombre de la aplicación o plugin -->
+    
+    <type>plugins.generic</type>
+    <!-- Indica el tipo de plugin, clasificándolo como un plugin genérico -->
+
+    <release>0.1.0.0</release>
+    <!-- Especifica la versión del plugin -->
+
+    <date>2019-05-15</date>
+    <!-- Indica la fecha de lanzamiento de la versión del plugin -->
+
+    <lazy-load>1</lazy-load>
+    <!-- Especifica si el plugin debe cargarse de manera perezosa (lazy loading) -->
+
+    <class>VideoJsViewerPlugin</class>
+    <!-- Define la clase principal del plugin -->
 </version>
+<!-- Cierra el elemento raíz <version> -->
