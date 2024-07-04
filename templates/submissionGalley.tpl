@@ -4,24 +4,24 @@
  * Embedded viewing of a video galley.
  *}
 
-<!-- Captura el título de la página traducido -->
+<!-- Capture the translated page title -->
 {capture assign=pageTitle}{translate key="plugins.generic.videoJsViewer.watchVideo"}{/capture}
-<!-- Asigna el título de la página traducido a la variable "pageTitle" -->
+<!-- Assign the translated page title to the "pageTitle" variable -->
 
-<!-- Incluye el archivo de plantilla del encabezado -->
+<!-- Include the header template file -->
 {include file="frontend/components/header.tpl"}
 
-<!-- Contenedor principal centrado con un margen superior -->
+<!-- Main container centered with top margin -->
 <div class="container" style="text-align: center; margin-top: 30px;">
-    <!-- Título del galley del video -->
+    <!-- Video galley title -->
     <h2>{$galleyFile->getLabel()}</h2>
-    <!-- Contenedor del video con un ancho máximo del 100% y un ancho del 80% del contenedor padre -->
+    <!-- Video container with a maximum width of 100% and a width of 80% of the parent container -->
     <div style="display: inline-block; max-width: 100%; width: 80%;">
-        <!-- Reproductor de video usando Video.js -->
+        <!-- Video player using Video.js -->
         <video id="video-js" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="100%" height="auto" data-setup="{}">
-            <!-- Fuente del video, obtenida de la URL de descarga del galley -->
+            <!-- Video source, obtained from the galley download URL -->
             <source src="{url page="article" op="download" path=$galleyFile->getBestGalleyId()}" type="video/mp4">
-            <!-- Mensaje mostrado si el navegador no soporta JavaScript -->
+            <!-- Message displayed if the browser does not support JavaScript -->
             <p class="vjs-no-js">
                 {translate key="plugins.generic.videoJsViewer.noJsMessage"}
             </p>
@@ -29,10 +29,9 @@
     </div>
 </div>
 
-<!-- Enlaces a los recursos de Video.js (hojas de estilo y scripts) -->
+<!-- Links to Video.js resources (stylesheets and scripts) -->
 <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
 <script src="https://vjs.zencdn.net/7.10.2/video.js"></script>
 
-<!-- Incluye el archivo de plantilla del pie de página -->
+<!-- Include the footer template file -->
 {include file="frontend/components/footer.tpl"}
-
