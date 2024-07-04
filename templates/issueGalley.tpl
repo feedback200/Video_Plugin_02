@@ -4,22 +4,22 @@
  * Embedded viewing of a video galley.
  *}
 
-<!-- Captura la URL para descargar el video galley -->
+<!-- Capture the URL to download the video galley -->
 {capture assign="videoUrl"}{url op="download" path=$issue->getBestIssueId($currentJournal)|to_array:$galley->getBestGalleyId($currentJournal) escape=false}{/capture}
-<!-- Asigna la URL de descarga del video galley a la variable "videoUrl" -->
+<!-- Assign the video galley download URL to the "videoUrl" variable -->
 
-<!-- Captura la URL del padre, que es la vista de la edición -->
+<!-- Capture the URL of the parent, which is the issue view -->
 {capture assign="parentUrl"}{url page="issue" op="view" path=$issue->getBestIssueId($currentJournal)}{/capture}
-<!-- Asigna la URL de la vista de la edición a la variable "parentUrl" -->
+<!-- Assign the issue view URL to the "parentUrl" variable -->
 
-<!-- Captura el título del galley -->
+<!-- Capture the galley title -->
 {capture assign="galleyTitle"}{translate key="submission.representationOfTitle" representation=$galley->getLabel() title=$issue->getIssueIdentification()|escape}{/capture}
-<!-- Asigna el título del galley a la variable "galleyTitle" -->
+<!-- Assign the galley title to the "galleyTitle" variable -->
 
-<!-- Captura la fecha de publicación formateada -->
+<!-- Capture the formatted publication date -->
 {capture assign="datePublished"}{translate key="submission.outdatedVersion" datePublished=$issue->getData('datePublished')|date_format:$dateFormatLong urlRecentVersion=$parentUrl}{/capture}
-<!-- Asigna la fecha de publicación formateada a la variable "datePublished" -->
+<!-- Assign the formatted publication date to the "datePublished" variable -->
 
-<!-- Incluye el archivo de plantilla especificado para mostrar el video -->
+<!-- Include the specified template file to display the video -->
 {include file=$displayTemplateResource title=$issue->getIssueIdentification() parentUrl=$parentUrl videoUrl=$videoUrl galleyTitle=$galleyTitle datePublished=$datePublished}
-<!-- Incluye la plantilla de visualización utilizando las variables capturadas -->
+<!-- Include the display template using the captured variables -->
