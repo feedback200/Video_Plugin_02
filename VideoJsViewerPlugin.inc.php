@@ -1,31 +1,31 @@
 <?php
 
-// Importa la clase base para plugins genéricos de PKP
+// Imports the base class for PKP generic plugins
 import('lib.pkp.classes.plugins.GenericPlugin');
 
-// Define la clase del plugin VideoJsViewer que extiende de GenericPlugin
+// Defines the VideoJsViewer plugin class that extends GenericPlugin
 class VideoJsViewerPlugin extends GenericPlugin {
 
     /**
-     * Registra el plugin en una categoría específica
+     * Registers the plugin in a specific category
      * 
-     * @param string $category La categoría en la que se registra el plugin
-     * @param string $path La ruta del plugin
-     * @param int|null $mainContextId El ID del contexto principal (opcional)
-     * @return bool true si se registra exitosamente, false en caso contrario
+     * @param string $category The category in which the plugin is registered
+     * @param string $path The plugin path
+     * @param int|null $mainContextId The main context ID (optional)
+     * @return bool true if successfully registered, false otherwise
      */
     function register($category, $path, $mainContextId = null) {
-        // Llama al método register de la clase base
+        // Calls the register method of the base class
         if (parent::register($category, $path, $mainContextId)) {
-            // Verifica si el plugin está habilitado
+            // Checks if the plugin is enabled
             if ($this->getEnabled($mainContextId)) {
-                // Para OPS: registra el gancho para la visualización de galeradas de preprints
+                // For OPS: registers the hook for preprint galley viewing
                 HookRegistry::register('PreprintHandler::view::galley', [$this, 'submissionCallback'], HOOK_SEQUENCE_LAST);
-                // Para OJS: registra el gancho para la visualización de galeradas de artículos
+                // For OJS: registers the hook for article galley viewing
                 HookRegistry::register('ArticleHandler::view::galley', [$this, 'submissionCallback'], HOOK_SEQUENCE_LAST);
-                // Para OJS: registra el gancho para la visualización de galeradas de números
+                // For OJS: registers the hook for issue galley viewing
                 HookRegistry::register('IssueHandler::view::galley', [$this, 'issueCallback'], HOOK_SEQUENCE_LAST);
-                // Requiere componentes locales comunes de la aplicación
+                // Requires common application locale components
                 AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
             }
             return true;
@@ -34,32 +34,32 @@ class VideoJsViewerPlugin extends GenericPlugin {
     }
 
     /**
-     * Obtiene el nombre para mostrar del plugin
+     * Gets the display name of the plugin
      * 
-     * @return string El nombre para mostrar del plugin
+     * @return string The display name of the plugin
      */
     function getDisplayName() {
         return __('plugins.generic.videoJsViewer.name');
     }
 
     /**
-     * Obtiene la descripción del plugin
+     * Gets the description of the plugin
      * 
-     * @return string La descripción del plugin
+     * @return string The description of the plugin
      */
     function getDescription() {
         return __('plugins.generic.videoJsViewer.description');
     }
 
     /**
-     * Callback para la visualización de preprints/artículos
+     * Callback for preprint/article viewing
      * 
-     * @param string $hookName El nombre del gancho (hook)
-     * @param array $args Los argumentos pasados al gancho
-     * @return bool true si se procesa exitosamente, false en caso contrario
+     * @param string $hookName The name of the hook
+     * @param array $args The arguments passed to the hook
+     * @return bool true if successfully processed, false otherwise
      */
     function submissionCallback($hookName, $args) {
-        // Obtiene los argumentos de la llamada al gancho
+        // Gets the arguments from the hook call
         $request = $args[0];
         $issue = $args[1];
         $galley = $args[2];
@@ -67,11 +67,11 @@ class VideoJsViewerPlugin extends GenericPlugin {
         $submissionFile = $galley->getFile();
         $author = $submission->getCurrentPublication()->getData('authors')[0];
     
-        // Verifica si el archivo es un video MP4
+        // Checks if the file is an MP4 video
         if ($submissionFile->getData('mimetype') === 'video/mp4') {
-            // Obtiene el gestor de plantillas
+            // Gets the template manager
             $templateMgr = TemplateManager::getManager($request);
-            // Asigna variables a la plantilla
+            // Assigns variables to the template
             $templateMgr->assign(array(
                 'displayTemplateResource' => $this->getTemplateResource('display.tpl'),
                 'pluginUrl' => $request->getBaseUrl() . '/' . $this->getPluginPath(),
@@ -84,7 +84,7 @@ class VideoJsViewerPlugin extends GenericPlugin {
                 'datePublished' => $submission->getCurrentPublication()->getData('datePublished'),
                 'page_title' => $submission->getLocalizedTitle(),
             ));
-            // Muestra la plantilla
+            // Displays the template
             $templateMgr->display($this->getTemplateResource('display.tpl'));
             return true;
         }
@@ -93,23 +93,23 @@ class VideoJsViewerPlugin extends GenericPlugin {
     }
     
     /**
-     * Callback para la visualización de números
+     * Callback for issue viewing
      * 
-     * @param string $hookName El nombre del gancho (hook)
-     * @param array $params Los parámetros pasados al gancho
-     * @return bool true si se procesa exitosamente, false en caso contrario
+     * @param string $hookName The name of the hook
+     * @param array $params The parameters passed to the hook
+     * @return bool true if successfully processed, false otherwise
      */
     function issueCallback($hookName, $params) {
-        // Obtiene los parámetros de la llamada al gancho
+        // Gets the parameters from the hook call
         $request = $params[0];
         $issue = $params[1];
         $galley = $params[2];
 
-        // Verifica si el archivo es un video MP4
+        // Checks if the file is an MP4 video
         if ($galley->getFileType() == 'video/mp4') {
-            // Obtiene el gestor de plantillas
+            // Gets the template manager
             $templateMgr = TemplateManager::getManager($request);
-            // Asigna variables a la plantilla
+            // Assigns variables to the template
             $templateMgr->assign(array(
                 'displayTemplateResource' => $this->getTemplateResource('display.tpl'),
                 'pluginUrl' => $request->getBaseUrl() . '/' . $this->getPluginPath(),
@@ -119,7 +119,7 @@ class VideoJsViewerPlugin extends GenericPlugin {
                 'videoUrl' => $request->url(null, 'issue', 'download', [$issue->getBestIssueId(), $galley->getBestGalleyId()]),
                 'datePublished' => $issue->getData('datePublished'),
             ));
-            // Muestra la plantilla
+            // Displays the template
             $templateMgr->display($this->getTemplateResource('display.tpl'));
             return true;
         }
