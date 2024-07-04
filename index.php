@@ -1,10 +1,11 @@
 <?php
 
-// Requiere el archivo que contiene la definición de la clase VideoJsViewerPlugin
+// Requires the file that contains the definition of the VideoJsViewerPlugin class
 require_once('VideoJsViewerPlugin.inc.php');
 
-// Crea una nueva instancia del plugin VideoJsViewerPlugin y la devuelve
+// Creates a new instance of the VideoJsViewerPlugin and returns it
 return new VideoJsViewerPlugin();
 
 ?>
+
 
