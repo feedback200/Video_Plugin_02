@@ -1,21 +1,54 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T11:05:18+00:00\n"
-"PO-Revision-Date: 2019-11-19T11:05:18+00:00\n"
-"Language: \n"
+# The following code is for a gettext PO (Portable Object) file. 
+# This type of file is used in software localization to translate 
+# text strings into different languages.
 
+msgid ""  # The message ID, which is empty here as it refers to the file header.
+msgstr ""  # The message string, which is also empty here.
+
+"Project-Id-Version: \n"  # The version of the project.
+"Report-Msgid-Bugs-To: \n"  # The contact address to report bugs in the message IDs.
+"Last-Translator: \n"  # The name and email address of the last translator.
+"Language-Team: \n"  # The name and email address of the translation team.
+"MIME-Version: 1.0\n"  # The MIME version.
+"Content-Type: text/plain; charset=UTF-8\n"  # The content type and character set.
+"Content-Transfer-Encoding: 8bit\n"  # The encoding of the content transfer.
+"POT-Creation-Date: 2019-11-19T11:05:18+00:00\n"  # The date and time when the POT file was created.
+"PO-Revision-Date: 2019-11-19T11:05:18+00:00\n"  # The date and time when the PO file was last revised.
+"Language: \n"  # The language code for the translations in this file.
+
+
+# Plugin name
 msgid "plugins.generic.videoJsViewer.name"
 msgstr "Video player"
 
+# Plugin description
 msgid "plugins.generic.videoJsViewer.description"
 msgstr "This module is used as a video player"
 
+# Question about showing the video directly in the magazine
 msgid "plugins.generic.videoJsViewer.showVideoDirectly"
 msgstr "Do you want to show the video directly in the magazine?"
+
+# Author name
+msgid "author.name"
+msgstr "Author"
+
+# Article abstract
+msgid "article.abstract"
+msgstr "Abstract"
+
+# Article publication date
+msgid "article.publicationDate"
+msgstr "Publication Date"
+
+# Common: Download
+msgid "common.download"
+msgstr "Download"
+
+# Common: Download Video
+msgid "common.downloadVideo"
+msgstr "Download Video"
+
+# Message for when JavaScript is disabled
+msgid "plugins.generic.videoJsViewer.noJsMessage"
+msgstr "You need to enable JavaScript to view the video."
