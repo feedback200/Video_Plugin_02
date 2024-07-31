@@ -5,8 +5,8 @@
 Have Ojs version 3.3.0-18
 
 ### How to install?
-- Descargue el complemento en formato .zip
-- Descomprima el archivo en su host local
+- You can download the plugin in .zip format.
+- Unzip the file to your local host
 - Copy the folder and paste in the instance of your OJS
 ### Example: C:\xampp\htdocs\ojs\plugins\generic
 ### In htdocs paste de folder of generic in plugins of OJS
